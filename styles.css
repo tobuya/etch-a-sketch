@@ -27,6 +27,10 @@ body {
     align-items: center;
     justify-content: center;
 }
+.button {
+    flex: 1;
+    padding: 8px;
+}
 
 #grid-container {
     display: grid;
@@ -60,10 +64,3 @@ body {
     animation-fill-mode: forwards;
     animation-play-state: running;
 }*/
-
-.button {
-    flex: 1 1 0;
-    height: auto;
-    width: auto;
-    margin: 20px;
-}
