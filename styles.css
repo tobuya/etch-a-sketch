@@ -4,32 +4,37 @@
     margin: 5px;
     text-align: center;
 }
-
-#main {
+body {
+    background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
     display: flex;
-    border: 2px solid green;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#main {
+    flex-grow: 1;
+    display: flex;
     margin-top: 0px;
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 #header {
-    border: 2px solid goldenrod;
-    height: 20%;
     padding-top: 20px;
+    color: white;
 }
 #aside {
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40%;
 }
 
-/*#grid-container {
+#grid-container {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-}*/
+    place-items: center;
+    width: 1000px;
+    height: 1000px;
+    background: -webkit-linear-gradient(left, grey, grey 30%, grey 30%, grey);
+}
 
 /*.grid-items {
     border: 1px solid black;
