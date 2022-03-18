@@ -1,18 +1,19 @@
 const container = document.querySelector('#grid-container');
 const aside = document.querySelector('#aside');
 
-window.addEventListener('load', () => {
-    container.setAttribute('style', 'display: grid; grid-template-columns: repeat(16, minmax(0,1fr));');
+window.addEventListener('load', createDiv);
+function createDiv(event) {
+    container.setAttribute('style', 'display: grid; grid-template-columns: repeat(16, minmax(0, 1fr));');
     let squared = 256;
     for (let i = 0; i < 256; i++){
         const div = document.createElement('div');
-        div.setAttribute('style', 'border: 0.5px dotted white; width: 100%; height: 100%;')
+        div.setAttribute('style', 'border: 0.5px dotted white; width: 100%; height: 100%;');
         container.appendChild(div);
         div.addEventListener('click', () => {
-            div.style.backgroundColor= 'aqua';
+            div.style.backgroundColor = 'aqua';
         });
     }
-});
+}
 
 const resetButton = document.createElement('button');
 resetButton.textContent = 'RESET';
@@ -25,8 +26,10 @@ resetButton.addEventListener('click', () => {
     container.setAttribute('style',`display: grid; grid-template-columns: repeat(${perSide}, 1fr);`)
     if (perSide <= 0 || isNaN(perSide)){
         alert('ENTER A POSITIVE NUMBER!');
+        createDiv();
     }else if (perSide > 100){
         alert('MAXIMUM NUMBER ALLOWED IS 100');
+        createDiv();
     }else{
         let squareDiv = (perSide * perSide);
         for (let j = 0; j < squareDiv; j++){
