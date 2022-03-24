@@ -96,6 +96,16 @@ const eraserButton = document.createElement('button');
 eraserButton.textContent = 'ERASER';
 eraserButton.classList.add('button');
 aside.appendChild(eraserButton);
+eraserButton.addEventListener('click', eraser);
+
+function eraser() {
+    let grids = document.querySelectorAll('.sketch-pad');
+    grids.forEach(function(grid) {
+        grid.addEventListener('click', () => {
+            grid.style.backgroundColor = 'grey';
+        });
+    });
+}
 
 const clearButton = document.createElement('button');
 clearButton.textContent = 'CLEAR';
