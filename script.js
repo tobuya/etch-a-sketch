@@ -9,11 +9,13 @@ function createDiv(event) {
         const div = document.createElement('div');
         div.setAttribute('style', 'border: 0.5px dotted white; width: 100%; height: 100%;');
         container.appendChild(div);
+        div.classList.add('sketch-pad');
         div.addEventListener('click', () => {
             div.style.backgroundColor = 'aqua';
         });
     }
 }
+
 
 const resetButton = document.createElement('button');
 resetButton.textContent = 'RESET';
@@ -23,7 +25,7 @@ resetButton.addEventListener('click', () => {
     container.replaceChildren();
     let squarePerSide = prompt('How many squares per side?(Maximum: 100)',16);
     let perSide = Number(squarePerSide);
-    container.setAttribute('style',`display: grid; grid-template-columns: repeat(${perSide}, 1fr);`)
+    container.setAttribute('style',`display: grid; grid-template-columns: repeat(${perSide}, 1fr); grid-gap: 0px;`)
     if (perSide <= 0 || isNaN(perSide)){
         alert('ENTER A POSITIVE NUMBER!');
         createDiv();
@@ -33,21 +35,41 @@ resetButton.addEventListener('click', () => {
     }else{
         let squareDiv = (perSide * perSide);
         for (let j = 0; j < squareDiv; j++){
-            const gridDiv = document.createElement('div');
+            let gridDiv = document.createElement('div');
             gridDiv.setAttribute('style', 'border: 0.5px dotted white; width: 100%; height: 100%;');
             container.appendChild(gridDiv);
+            gridDiv.classList.add('sketch-pad');
             gridDiv.addEventListener('click', () => {
                 gridDiv.style.background = 'aqua';
-            })
+            });
         }
     }
 });
+
 
 const colorButton = document.createElement('button');
 colorButton.textContent = 'COLOR';
 colorButton.classList.add('button');
 aside.appendChild(colorButton);
-//colorButton.addEventListener('click', )
+colorButton.addEventListener('click',colorPicker);
+
+function colorPicker(event){
+    let colorInput = document.createElement('input');
+    colorInput.type = 'color';
+    colorInput.value = '#0000ff';
+    colorButton.appendChild(colorInput);
+    colorButton.removeEventListener('click', colorPicker);
+    colorInput.addEventListener('input', () => {
+        let color = colorInput.value;
+        let grids = container.querySelectorAll('.sketch-pad');
+        grids.forEach(function(grid) {
+            grid.addEventListener('click', () => {
+                grid.style.backgroundColor = color;
+            });
+        });
+    });
+    colorInput.select();
+}
 
 
 const rainbowButton = document.createElement('button');
@@ -64,4 +86,5 @@ const clearButton = document.createElement('button');
 clearButton.textContent = 'CLEAR';
 clearButton.classList.add('button');
 aside.appendChild(clearButton);
+clearButton.addEventListener('click', createDiv);
 
