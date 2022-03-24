@@ -111,5 +111,14 @@ const clearButton = document.createElement('button');
 clearButton.textContent = 'CLEAR';
 clearButton.classList.add('button');
 aside.appendChild(clearButton);
-clearButton.addEventListener('click', createDiv);
+clearButton.addEventListener('click', clear);
+
+function clear() {
+    let grids = document.querySelectorAll('.sketch-pad');
+    grids.forEach(function(grid) {
+        clearButton.addEventListener('click', () => {
+            grid.style.backgroundColor = 'grey';
+        });
+    });
+}
 
