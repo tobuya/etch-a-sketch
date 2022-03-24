@@ -76,6 +76,21 @@ const rainbowButton = document.createElement('button');
 rainbowButton.textContent = 'RAINBOW';
 rainbowButton.classList.add('button');
 aside.appendChild(rainbowButton);
+rainbowButton.addEventListener('click', rainbowArray);
+
+function rainbowArray() {
+    const rainbowColors = ['#9400D3','#4B0082','#0000FF','#00FF00','#FFFF00','#FF7F00','#FF0000'];
+    function rainbowColor(){
+        return rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
+    }
+    let grids = container.querySelectorAll('.sketch-pad');
+    grids.forEach(function(grid) {
+        grid.addEventListener('click', () => {
+            grid.style.backgroundColor = rainbowColor();
+        });
+    });
+}
+
 
 const eraserButton = document.createElement('button');
 eraserButton.textContent = 'ERASER';
