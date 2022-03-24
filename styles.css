@@ -4,12 +4,14 @@
     margin: 5px;
     text-align: center;
 }
+
 body {
     background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 #main {
     flex-grow: 1;
     display: flex;
@@ -18,15 +20,18 @@ body {
     justify-content: flex-start;
     align-items: center;
 }
+
 #header {
     padding-top: 20px;
     color: white;
 }
+
 #aside {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .button {
     flex: 1;
     padding: 8px;
@@ -40,30 +45,6 @@ body {
     background: grey;
 }
 
-/*.grid-items {
-    border: 1px solid black;
-    margin: 0px;
-    animation-name: hover;
-    animation-duration: 2s;
-    animation-fill-mode: backwards;
-    animation-play-state: paused;
-}*/
-/*
-@keyframes hover {
-    0% {
-        background-color: white;
-    }
-    100% {
-        background-color: aqua;
-    }
-}
-
-.grid-items:active,
-.grid-items:focus,
-.grid-items:hover {
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-}*/
 #footer {
     color: white;
     font-weight: bold;
