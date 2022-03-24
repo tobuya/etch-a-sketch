@@ -37,7 +37,7 @@ body {
     place-items: center;
     width: 1200px;
     height: 1200px;
-    background: -webkit-linear-gradient(left, grey, grey 30%, grey 30%, grey);
+    background: grey;
 }
 
 /*.grid-items {
